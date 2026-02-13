@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guia-de-instalacion-y-despliegue" class="md-skip">
+        <a href="#guia-de-instalacion-y-mantenimiento-del-sistema" class="md-skip">
           Skip to content
         </a>
       
@@ -580,10 +580,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos-previos" class="md-nav__link">
+  <a href="#requisitos-de-entorno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📥 Requisitos Previos
+        Requisitos de Entorno
       
     </span>
   </a>
@@ -591,10 +591,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalacion-de-la-documentacion" class="md-nav__link">
+  <a href="#despliegue-de-la-plataforma" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📓 Instalación de la Documentación
+        Despliegue de la Plataforma
       
     </span>
   </a>
@@ -602,24 +602,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#publicar-en-internet-github-pages" class="md-nav__link">
+  <a href="#gestion-de-la-documentacion-mkdocs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌐 Publicar en Internet (GitHub Pages)
+        Gestión de la Documentación (MkDocs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de la Documentación (MkDocs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comando-de-previsualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comando de Previsualización
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#compilacion-estatica" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#comando-de-publicacion-en-github" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🏗️ Compilación Estática
+        Comando de Publicación en GitHub
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -658,10 +675,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos-previos" class="md-nav__link">
+  <a href="#requisitos-de-entorno" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📥 Requisitos Previos
+        Requisitos de Entorno
       
     </span>
   </a>
@@ -669,10 +686,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#instalacion-de-la-documentacion" class="md-nav__link">
+  <a href="#despliegue-de-la-plataforma" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📓 Instalación de la Documentación
+        Despliegue de la Plataforma
       
     </span>
   </a>
@@ -680,24 +697,41 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#publicar-en-internet-github-pages" class="md-nav__link">
+  <a href="#gestion-de-la-documentacion-mkdocs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🌐 Publicar en Internet (GitHub Pages)
+        Gestión de la Documentación (MkDocs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestión de la Documentación (MkDocs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comando-de-previsualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comando de Previsualización
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#compilacion-estatica" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#comando-de-publicacion-en-github" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🏗️ Compilación Estática
+        Comando de Publicación en GitHub
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -721,56 +755,30 @@
   
 
 
-<h1 id="guia-de-instalacion-y-despliegue">Guía de Instalación y Despliegue</h1>
-<p>Sigue estos pasos para poner en marcha el portal de documentación y el proyecto LayerHub.</p>
-<h2 id="requisitos-previos">📥 Requisitos Previos</h2>
+<h1 id="guia-de-instalacion-y-mantenimiento-del-sistema">Guía de Instalación y Mantenimiento del Sistema</h1>
+<p>Este documento describe el procedimiento estándar para el despliegue de LayerHub y su portal de documentación técnica.</p>
+<h2 id="requisitos-de-entorno">Requisitos de Entorno</h2>
 <ul>
-<li><strong>PHP 8.0</strong> o superior.</li>
-<li><strong>Servidor Web</strong> (Apache/Nginx) - Se recomienda <strong>XAMPP</strong>.</li>
-<li><strong>Python 3.x</strong> (para ejecutar MkDocs).</li>
+<li>Servidor HTTP con soporte para PHP 8.1.</li>
+<li>Extensiones de PHP habilitadas: <code>pdo_sqlite</code>, <code>fileinfo</code>.</li>
+<li>Permisos de escritura en los directorios <code>db/</code> y <code>public/uploads/</code>.</li>
 </ul>
-<h2 id="instalacion-de-la-documentacion">📓 Instalación de la Documentación</h2>
-<p>Para visualizar este portal de forma interactiva y profesional:</p>
+<h2 id="despliegue-de-la-plataforma">Despliegue de la Plataforma</h2>
 <ol>
-<li>
-<p><strong>Instalar MkDocs y el tema Material</strong>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-material
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Ejecutar el servidor local</strong>:
-   Desde la raíz del proyecto (<code>c:\xampp\htdocs</code>), ejecuta:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdocs<span class="w"> </span>serve
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Ver en el navegador</strong>:
-   Abre <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a>.</p>
-</li>
+<li>Configure la variable <code>BASE_URL</code> en el archivo <code>php/includes/config.php</code> según su entorno de red.</li>
+<li>Asegúrese de que el archivo <code>db/layerhub.sqlite</code> tenga permisos de usuario adecuados para permitir la lectura y escritura por parte de Apache/Nginx.</li>
 </ol>
-<h2 id="publicar-en-internet-github-pages">🌐 Publicar en Internet (GitHub Pages)</h2>
-<p>MkDocs tiene una función integrada para crear un enlace web gratuito:</p>
-<ol>
-<li><strong>Subir a GitHub</strong>: Asegúrate de que tu proyecto está en un repositorio de GitHub.</li>
-<li>
-<p><strong>Ejecutar despliegue</strong>:
-   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>mkdocs<span class="w"> </span>gh-deploy
-</code></pre></div>
-   Este comando compilará tu documentación y la subirá a una rama llamada <code>gh-pages</code>.</p>
-</li>
-<li>
-<p><strong>Configuración en GitHub</strong>:</p>
-</li>
-<li>Ve a tu repositorio en GitHub.com.</li>
-<li>Entra en <strong>Settings</strong> &gt; <strong>Pages</strong>.</li>
-<li>Asegúrate de que la fuente es la rama <code>gh-pages</code>.</li>
-<li>¡GitHub te dará una URL (ej: <code>https://tu-usuario.github.io/layerhub</code>) para que cualquiera pueda entrar!</li>
-</ol>
-<h2 id="compilacion-estatica">🏗️ Compilación Estática</h2>
-<p>Si quieres generar una versión HTML de esta documentación para subirla a un servidor web:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>mkdocs<span class="w"> </span>build
-</code></pre></div>
-Esto creará una carpeta <code>site/</code> con todo el contenido listo para ser servido.</p>
+<h2 id="gestion-de-la-documentacion-mkdocs">Gestión de la Documentación (MkDocs)</h2>
+<p>La documentación se genera de forma estática, lo que permite un hosting ágil en servicios como GitHub Pages.</p>
+<h3 id="comando-de-previsualizacion">Comando de Previsualización</h3>
+<p>Para observar los cambios en tiempo real durante la edición de los archivos Markdown:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdocs<span class="w"> </span>serve
+</code></pre></div></p>
+<h3 id="comando-de-publicacion-en-github">Comando de Publicación en GitHub</h3>
+<p>Para actualizar la versión pública alojada en el repositorio de GitHub:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdocs<span class="w"> </span>gh-deploy
+</code></pre></div></p>
+<p>Este comando automatiza la compilación del sitio y su transferencia a la rama <code>gh-pages</code> del repositorio configurado.</p>
 
 
 
