@@ -1,22 +1,22 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="es" class="no-js">
   <head>
     
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Guía técnica completa del proyecto LayerHub">
+        <meta name="description" content="Documentación técnica y manual de despliegue del proyecto LayerHub">
       
       
-        <meta name="author" content="Senior Full-Stack Developer">
+        <meta name="author" content="Estudiante ASIR">
       
       
       
         <link rel="prev" href="../architecture/">
       
       
-        <link rel="next" href="../features/">
+        <link rel="next" href="../features_client/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Base de Datos - LayerHub Documentation</title>
+        <title>Base de Datos - Memoria Técnica LayerHub</title>
       
     
     
@@ -78,8 +78,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#modelo-de-datos-y-gestion-de-persistencia" class="md-skip">
-          Skip to content
+        <a href="#infraestructura-de-datos" class="md-skip">
+          Saltar a contenido
         </a>
       
     </div>
@@ -91,8 +91,8 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="LayerHub Documentation" class="md-header__button md-logo" aria-label="LayerHub Documentation" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Memoria Técnica LayerHub" class="md-header__button md-logo" aria-label="Memoria Técnica LayerHub" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -106,7 +106,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            LayerHub Documentation
+            Memoria Técnica LayerHub
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -160,16 +160,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="Buscar">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -182,7 +182,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            Inicializando búsqueda
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -194,7 +194,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/tu-usuario/layerhub" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/nereafernandez-ASIR/PROYECTOWEB" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -215,7 +215,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -231,7 +231,7 @@
   
     
   
-  Inicio
+  Introducción
 
       </a>
     </li>
@@ -284,13 +284,32 @@
   
   
     <li class="md-tabs__item">
-      <a href="../features/" class="md-tabs__link">
+      <a href="../features_client/" class="md-tabs__link">
         
   
   
     
   
-  Funcionalidades
+  Módulos Cliente
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../features_admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Módulos Admin
 
       </a>
     </li>
@@ -309,7 +328,7 @@
   
     
   
-  Seguridad y Roles
+  Seguridad
 
       </a>
     </li>
@@ -328,7 +347,7 @@
   
     
   
-  Guía de Instalación
+  Manual de Despliegue
 
       </a>
     </li>
@@ -355,19 +374,19 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="LayerHub Documentation" class="md-nav__button md-logo" aria-label="LayerHub Documentation" data-md-component="logo">
+    <a href=".." title="Memoria Técnica LayerHub" class="md-nav__button md-logo" aria-label="Memoria Técnica LayerHub" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
-    LayerHub Documentation
+    Memoria Técnica LayerHub
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/tu-usuario/layerhub" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/nereafernandez-ASIR/PROYECTOWEB" title="Ir al repositorio" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
@@ -394,7 +413,7 @@
   <span class="md-ellipsis">
     
   
-    Inicio
+    Introducción
   
 
     
@@ -487,7 +506,7 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
   
@@ -496,49 +515,27 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#diagrama-de-entidad-relacion" class="md-nav__link">
+  <a href="#esquema-relacional-completo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagrama de Entidad-Relación
+        Esquema Relacional Completo
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementacion-de-la-capa-de-datos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementación de la Capa de Datos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#definicion-tecnica-de-tablas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Definición Técnica de Tablas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Definición Técnica de Tablas">
+    <nav class="md-nav" aria-label="Esquema Relacional Completo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usuarios-users" class="md-nav__link">
+  <a href="#1-tabla-users-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usuarios (users)
+        1. Tabla users (Usuarios)
       
     </span>
   </a>
@@ -546,10 +543,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#productos-products" class="md-nav__link">
+  <a href="#2-tabla-products-catalogo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Productos (products)
+        2. Tabla products (Catálogo)
       
     </span>
   </a>
@@ -557,13 +554,74 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#modelos-stl-y-comunidad" class="md-nav__link">
+  <a href="#3-tabla-orders-y-order_items-ventas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modelos STL y Comunidad
+        3. Tabla orders y order_items (Ventas)
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tablas-de-comunidad-stl-y-tutoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tablas de Comunidad (STL y Tutoriales)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tablas de Comunidad (STL y Tutoriales)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabla-stl_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla stl_files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla tutorials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-ratings-valoraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla ratings (Valoraciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-user_follows-seguidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla user_follows (Seguidores)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -587,14 +645,41 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
+      <a href="../features_client/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Funcionalidades
+    Módulos Cliente
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features_admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Módulos Admin
   
 
     
@@ -621,7 +706,7 @@
   <span class="md-ellipsis">
     
   
-    Seguridad y Roles
+    Seguridad
   
 
     
@@ -648,7 +733,7 @@
   <span class="md-ellipsis">
     
   
-    Guía de Instalación
+    Manual de Despliegue
   
 
     
@@ -674,7 +759,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
   
   
   
@@ -683,49 +768,27 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      Tabla de contenidos
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#diagrama-de-entidad-relacion" class="md-nav__link">
+  <a href="#esquema-relacional-completo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Diagrama de Entidad-Relación
+        Esquema Relacional Completo
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementacion-de-la-capa-de-datos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementación de la Capa de Datos
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#definicion-tecnica-de-tablas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Definición Técnica de Tablas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Definición Técnica de Tablas">
+    <nav class="md-nav" aria-label="Esquema Relacional Completo">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#usuarios-users" class="md-nav__link">
+  <a href="#1-tabla-users-usuarios" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Usuarios (users)
+        1. Tabla users (Usuarios)
       
     </span>
   </a>
@@ -733,10 +796,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#productos-products" class="md-nav__link">
+  <a href="#2-tabla-products-catalogo" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Productos (products)
+        2. Tabla products (Catálogo)
       
     </span>
   </a>
@@ -744,13 +807,74 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#modelos-stl-y-comunidad" class="md-nav__link">
+  <a href="#3-tabla-orders-y-order_items-ventas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Modelos STL y Comunidad
+        3. Tabla orders y order_items (Ventas)
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tablas-de-comunidad-stl-y-tutoriales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tablas de Comunidad (STL y Tutoriales)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Tablas de Comunidad (STL y Tutoriales)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabla-stl_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla stl_files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-tutorials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla tutorials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-ratings-valoraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla ratings (Valoraciones)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabla-user_follows-seguidores" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tabla user_follows (Seguidores)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -779,53 +903,194 @@
   
 
 
-<h1 id="modelo-de-datos-y-gestion-de-persistencia">Modelo de Datos y Gestión de Persistencia</h1>
-<p>El sistema utiliza SQLite 3 como motor de base de datos relacional. La gestión se centraliza en una arquitectura orientada a objetos a través de la clase <code>Database</code>.</p>
-<h2 id="diagrama-de-entidad-relacion">Diagrama de Entidad-Relación</h2>
-<p>La estructura de datos garantiza la integridad mediante claves foráneas y restricciones de borrado en cascada.</p>
+<h1 id="infraestructura-de-datos">Infraestructura de Datos</h1>
+<p>El sistema de persistencia se basa en <strong>SQLite 3</strong>, gestionado a través de la interfaz <strong>PDO</strong> de PHP. Este diseño garantiza la integridad referencial y permite transacciones ACID.</p>
+<h2 id="esquema-relacional-completo">Esquema Relacional Completo</h2>
+<p>A continuación se detalla la estructura de todas las tablas del sistema, incluyendo sus claves primarias (PK), foráneas (FK) y restricciones de integridad.</p>
 <pre class="mermaid"><code>erDiagram
-    USERS ||--o{ POSTS : "gestiona"
-    USERS ||--o{ ORDERS : "registra"
-    USERS ||--o{ USER_FOLLOWS : "participa"
-    POSTS ||--o| STL_FILES : "vincula"
-    USERS ||--o{ RATINGS : "asocia"
-    STL_FILES ||--o{ RATINGS : "recibe"
-    ORDERS ||--o{ ORDER_ITEMS : "contiene"
-    PRODUCTS ||--o{ ORDER_ITEMS : "pertenece"
-    PRODUCTS ||--o{ CART : "incluye"
-    USERS ||--o{ CART : "posee"</code></pre>
-<h2 id="implementacion-de-la-capa-de-datos">Implementación de la Capa de Datos</h2>
-<p>La conexión se gestiona mediante el patrón <strong>Singleton</strong> para evitar múltiples conexiones innecesarias al archivo de base de datos.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">class Database {</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">    private static $instance = null;</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">    private $connection;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="x">    private function __construct() {</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">        try {</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">            $this-&gt;connection = new PDO(&#39;sqlite:&#39; . DB_PATH);</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">            $this-&gt;connection-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="x">            $this-&gt;connection-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="x">            $this-&gt;connection-&gt;exec(&#39;PRAGMA foreign_keys = ON&#39;);</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="x">        } catch (PDOException $e) {</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="x">            die(&quot;Error crítico de base de datos.&quot;);</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="x">        }</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="x">    }</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="x">    public static function getInstance() {</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="x">        if (self::$instance === null) {</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="x">            self::$instance = new Database();</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="x">        }</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="x">        return self::$instance;</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="x">    }</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="x">}</span>
-</code></pre></div>
-<h2 id="definicion-tecnica-de-tablas">Definición Técnica de Tablas</h2>
-<h3 id="usuarios-users">Usuarios (users)</h3>
-<p>Gestiona la identidad y el nivel de privilegio. El campo <code>blocked</code> actúa como interruptor global de seguridad.</p>
-<h3 id="productos-products">Productos (products)</h3>
-<p>Almacena el catálogo de hardware. El sistema utiliza transacciones para asegurar que el decremento de <code>stock</code> sea atómico durante una compra.</p>
-<h3 id="modelos-stl-y-comunidad">Modelos STL y Comunidad</h3>
-<p>La relación entre <code>posts</code> y <code>stl_files</code> permite una gestión flexible del contenido social, manteniendo la metadata separada de la ruta física del archivo.</p>
+    USERS ||--o{ ORDERS : "1:N"
+    USERS ||--o{ POSTS : "1:N"
+    USERS ||--o{ REVIEWS : "1:N"
+    USERS ||--o{ CART : "1:N"
+    PRODUCT ||--o{ ORDER_ITEMS : "1:N"
+    PRODUCT ||--o{ CART : "1:N"
+    ORDER ||--o{ ORDER_ITEMS : "1:N"
+    POST ||--o{ COMMENT : "1:N"
+    POST ||--|{ STL_FILE : "1:1"</code></pre>
+<h3 id="1-tabla-users-usuarios">1. Tabla <code>users</code> (Usuarios)</h3>
+<p>Almacena las credenciales y perfiles de todos los actores del sistema.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Restricciones</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, AUTOINCREMENT</td>
+<td style="text-align: left;">Identificador único.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>username</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">UNIQUE, NOT NULL</td>
+<td style="text-align: left;">Nombre de usuario para login.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>password</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Hash BCRYPT de la contraseña.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>role</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">CHECK('user', 'admin')</td>
+<td style="text-align: left;">Nivel de acceso.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>blocked</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">DEFAULT 0</td>
+<td style="text-align: left;">Flag de bloqueo (1=Bloqueado).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-tabla-products-catalogo">2. Tabla <code>products</code> (Catálogo)</h3>
+<p>Inventario de artículos físicos disponibles en la tienda.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Restricciones</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">PK, AUTOINCREMENT</td>
+<td style="text-align: left;">Identificador de producto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>title</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Nombre comercial.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>price</code></td>
+<td style="text-align: left;">REAL</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Precio unitario.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>stock</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">DEFAULT 0</td>
+<td style="text-align: left;">Cantidad disponible.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-tabla-orders-y-order_items-ventas">3. Tabla <code>orders</code> y <code>order_items</code> (Ventas)</h3>
+<p>Estructura maestro-detalle para registrar las transacciones.</p>
+<ul>
+<li><strong>orders</strong>: Cabecera del pedido (Usuario, Fecha, Total).</li>
+<li><strong>order_items</strong>: Líneas de detalle (Producto, Cantidad, Precio Histórico).</li>
+</ul>
+<h3 id="4-tablas-de-comunidad-stl-y-tutoriales">4. Tablas de Comunidad (STL y Tutoriales)</h3>
+<h4 id="tabla-stl_files">Tabla <code>stl_files</code></h4>
+<p>Almacena la referencia a los archivos 3D subidos.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Restricciones</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>user_id</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK -&gt; users.id</td>
+<td style="text-align: left;">Creador del archivo.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>file_path</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">NOT NULL</td>
+<td style="text-align: left;">Ruta física en servidor.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>status</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">'pending'/'approved'</td>
+<td style="text-align: left;">Estado de moderación.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tabla-tutorials">Tabla <code>tutorials</code></h4>
+<p>Gestión híbrida de contenido educativo.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>video_url</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">URL de YouTube o ruta local de archivo MP4.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>status</code></td>
+<td style="text-align: left;">TEXT</td>
+<td style="text-align: left;">Estado de moderación.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tabla-ratings-valoraciones">Tabla <code>ratings</code> (Valoraciones)</h4>
+<p>Sistema de feedback con restricción de unicidad (un usuario solo puede valorar una vez cada ítem).</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Campo</th>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Restricciones</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>user_id</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK -&gt; users.id</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>stl_id</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">FK -&gt; stl_files.id</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>rating</code></td>
+<td style="text-align: left;">INTEGER</td>
+<td style="text-align: left;">CHECK(1-5)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tabla-user_follows-seguidores">Tabla <code>user_follows</code> (Seguidores)</h4>
+<p>Relación reflexiva N:M que permite a los usuarios suscribirse a creadores. PKey compuesta <code>(follower_id, following_id)</code>.</p>
 
 
 
@@ -849,7 +1114,7 @@
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
-  Back to top
+  Volver al principio
 </button>
         
       </main>
@@ -881,7 +1146,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>

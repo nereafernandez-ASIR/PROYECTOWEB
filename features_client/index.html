@@ -13,8 +13,10 @@
       
       
       
-        <link rel="prev" href="../security/">
+        <link rel="prev" href="../database/">
       
+      
+        <link rel="next" href="../features_admin/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Manual de Despliegue - Memoria Técnica LayerHub</title>
+        <title>Módulos Cliente - Memoria Técnica LayerHub</title>
       
     
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#manual-de-despliegue-y-evaluacion" class="md-skip">
+        <a href="#analisis-funcional-modulos-de-cliente" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Manual de Despliegue
+              Módulos Cliente
             
           </span>
         </div>
@@ -278,9 +280,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../features_client/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -335,11 +339,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
         
   
   
@@ -482,10 +484,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../features_client/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Módulos Cliente
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -501,6 +530,110 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-carrito-de-compras-publiccarritophp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Carrito de Compras (public/carrito.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Carrito de Compras (public/carrito.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-recuperacion-de-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Recuperación de Items
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-gestion-de-archivos-stl-phpcommunityupload_stlphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Gestión de Archivos STL (php/community/upload_stl.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Gestión de Archivos STL (php/community/upload_stl.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-validacion-de-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Código de Validación de Seguridad
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sistema-de-tutoriales-phpcommunityadd_tutorialphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sistema de Tutoriales (php/community/add_tutorial.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Sistema de Tutoriales (php/community/add_tutorial.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-seleccion-de-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Selección de Fuente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -563,37 +696,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual de Despliegue
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -609,126 +715,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-del-entorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos del Entorno
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instrucciones-de-instalacion-paso-a-paso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instrucciones de Instalación Paso a Paso
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Instrucciones de Instalación Paso a Paso">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-ubicacion-de-archivos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Ubicación de Archivos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-verificacion-de-permisos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Verificación de Permisos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configuracion-de-acceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configuración de Acceso
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ejecucion-y-pruebas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejecución y Pruebas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ejecución y Pruebas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#datos-de-acceso-seeds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Datos de Acceso (Seeds)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizacion-de-documentacion-tecnica" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visualización de Documentación Técnica
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -760,55 +746,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos-del-entorno" class="md-nav__link">
+  <a href="#1-carrito-de-compras-publiccarritophp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos del Entorno
+        1. Carrito de Compras (public/carrito.php)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instrucciones-de-instalacion-paso-a-paso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instrucciones de Instalación Paso a Paso
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Instrucciones de Instalación Paso a Paso">
+    <nav class="md-nav" aria-label="1. Carrito de Compras (public/carrito.php)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ubicacion-de-archivos" class="md-nav__link">
+  <a href="#logica-de-recuperacion-de-items" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Ubicación de Archivos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-verificacion-de-permisos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Verificación de Permisos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configuracion-de-acceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configuración de Acceso
+        Lógica de Recuperación de Items
       
     </span>
   </a>
@@ -821,22 +774,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ejecucion-y-pruebas" class="md-nav__link">
+  <a href="#2-gestion-de-archivos-stl-phpcommunityupload_stlphp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ejecución y Pruebas
+        2. Gestión de Archivos STL (php/community/upload_stl.php)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ejecución y Pruebas">
+    <nav class="md-nav" aria-label="2. Gestión de Archivos STL (php/community/upload_stl.php)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#datos-de-acceso-seeds" class="md-nav__link">
+  <a href="#codigo-de-validacion-de-seguridad" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Datos de Acceso (Seeds)
+        Código de Validación de Seguridad
       
     </span>
   </a>
@@ -849,13 +802,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#visualizacion-de-documentacion-tecnica" class="md-nav__link">
+  <a href="#3-sistema-de-tutoriales-phpcommunityadd_tutorialphp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visualización de Documentación Técnica
+        3. Sistema de Tutoriales (php/community/add_tutorial.php)
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Sistema de Tutoriales (php/community/add_tutorial.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-seleccion-de-fuente" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Selección de Fuente
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -879,58 +849,66 @@
   
 
 
-<h1 id="manual-de-despliegue-y-evaluacion">Manual de Despliegue y Evaluación</h1>
-<p>Esta guía está diseñada para facilitar la evaluación del proyecto en un entorno local estándar utilizando <strong>XAMPP</strong>.</p>
-<h2 id="requisitos-del-entorno">Requisitos del Entorno</h2>
-<ul>
-<li><strong>Software</strong>: XAMPP (Apache + PHP 8.1 o superior).</li>
-<li><strong>Base de Datos</strong>: SQLite 3 (Nativa en PHP, no requiere servicio MySQL activo).</li>
-<li><strong>Sistema Operativo</strong>: Windows 10/11.</li>
-</ul>
-<h2 id="instrucciones-de-instalacion-paso-a-paso">Instrucciones de Instalación Paso a Paso</h2>
-<h3 id="1-ubicacion-de-archivos">1. Ubicación de Archivos</h3>
-<p>Copie la carpeta del proyecto <code>PROYECTOWEB</code> (o el contenido del repositorio) dentro del directorio raíz del servidor web:
-<code>C:\xampp\htdocs\PROYECTOWEB</code></p>
-<h3 id="2-verificacion-de-permisos">2. Verificación de Permisos</h3>
-<p>El sistema necesita crear y escribir en la base de datos y la carpeta de subidas. Asegúrese de que las siguientes carpetas tengan permisos de escritura:
-*   <code>/db</code> (Aquí se generará automáticamente <code>layerhub.sqlite</code>)
-*   <code>/public/uploads</code></p>
-<h3 id="3-configuracion-de-acceso">3. Configuración de Acceso</h3>
-<p>Abra el archivo <code>/php/includes/config.php</code> y verifique la constante <code>BASE_URL</code>. Para un entorno local estándar, debería ser:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">define(&#39;BASE_URL&#39;, &#39;http://localhost/PROYECTOWEB&#39;);</span>
+<h1 id="analisis-funcional-modulos-de-cliente">Análisis Funcional: Módulos de Cliente</h1>
+<p>Este documento detalla la implementación técnica de las funcionalidades accesibles para el usuario final (rol <code>user</code>).</p>
+<h2 id="1-carrito-de-compras-publiccarritophp">1. Carrito de Compras (<code>public/carrito.php</code>)</h2>
+<p>El carrito no utiliza cookies para almacenar productos, sino que persiste los datos en la base de datos (<code>table: cart</code>) para permitir el acceso multidispositivo.</p>
+<h3 id="logica-de-recuperacion-de-items">Lógica de Recuperación de Items</h3>
+<p>El siguiente bloque SQL realiza un <code>JOIN</code> entre la tabla <code>cart</code> y <code>products</code> para obtener toda la información necesaria en una sola consulta eficiente:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">// config.php / carrito.php</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">$stmt = $db-&gt;prepare(&quot;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">    SELECT c.*, p.title, p.price, p.image, p.stock </span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="x">    FROM cart c </span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="x">    JOIN products p ON c.product_id = p.id </span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="x">    WHERE c.user_id = ?</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="x">    ORDER BY c.added_at DESC</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="x">&quot;);</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="x">$stmt-&gt;execute([$user[&#39;id&#39;]]);</span>
 </code></pre></div>
-<h2 id="ejecucion-y-pruebas">Ejecución y Pruebas</h2>
-<ol>
-<li>Inicie el módulo <strong>Apache</strong> en el panel de control de XAMPP.</li>
-<li>Abra su navegador y acceda a: <code>http://localhost/PROYECTOWEB/public/index.php</code>.</li>
-<li><strong>Nota Importante</strong>: Al cargar la página por primera vez, el sistema detectará que no existe la base de datos y ejecutará automáticamente el script de inicialización (<code>config.php -&gt; initializeDatabase()</code>), creando todas las tablas e insertando los siguientes datos de prueba:</li>
-</ol>
-<h3 id="datos-de-acceso-seeds">Datos de Acceso (Seeds)</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Rol</th>
-<th style="text-align: left;">Usuario/Email</th>
-<th style="text-align: left;">Contraseña</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Administrador</strong></td>
-<td style="text-align: left;"><code>admin</code> / <code>admin@layerhub.com</code></td>
-<td style="text-align: left;"><code>admin123</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cliente</strong></td>
-<td style="text-align: left;"><code>cliente</code> / <code>cliente@layerhub.com</code></td>
-<td style="text-align: left;"><code>cliente123</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="visualizacion-de-documentacion-tecnica">Visualización de Documentación Técnica</h2>
-<p>Para visualizar esta memoria técnica en formato web:
-1.  Esta documentación se encuentra generada estáticamente en la URL del repositorio GitHub.
-2.  Alternativamente, puede navegar por los archivos Markdown en la carpeta <code>/docs/</code> del proyecto entregado.</p>
+<p><strong>Explicación Técnica:</strong>
+1.  Se prepara la consulta para prevenir Inyección SQL.
+2.  Se vinculan los datos del usuario actual (<code>$user['id']</code>).
+3.  Se recuperan dinámicamente el precio y stock actual (evitando guardar precios desactualizados en el carrito).</p>
+<h2 id="2-gestion-de-archivos-stl-phpcommunityupload_stlphp">2. Gestión de Archivos STL (<code>php/community/upload_stl.php</code>)</h2>
+<p>Este controlador maneja la subida de archivos binarios grandes. Implementa una estrategia de validación de seguridad en profundidad.</p>
+<h3 id="codigo-de-validacion-de-seguridad">Código de Validación de Seguridad</h3>
+<p>El sistema rechaza cualquier archivo que no cumpla estrictamente con los criterios de seguridad MIME y extensión.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">// Verificación de Tipo MIME Real</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">$finfo = finfo_open(FILEINFO_MIME_TYPE);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">$mime = finfo_file($finfo, $file[&#39;tmp_name&#39;]);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">finfo_close($finfo);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="x">// Lista blanca de tipos permitidos</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="x">$allowedMime = [</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="x">    &#39;application/sla&#39;, </span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="x">    &#39;application/octet-stream&#39;, </span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="x">    &#39;application/zip&#39;, </span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="x">    &#39;text/plain&#39;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="x">];</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="x">if (!in_array($mime, $allowedMime)) {</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="x">    // Manejo de error y redirección</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="x">    setFlash(&#39;Archivo no válido&#39;, &#39;error&#39;);</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="x">    redirect(&#39;/public/comunidad.php&#39;);</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="x">}</span>
+</code></pre></div>
+<p><strong>Relación con Base de Datos:</strong>
+Una vez validado el archivo físico, se registra una entrada en la tabla <code>stl_files</code> con el estado <code>pending</code>. Esto asegura que el archivo existe en el servidor pero <strong>no es visible</strong> públicamente hasta la aprobación administrativa.</p>
+<h2 id="3-sistema-de-tutoriales-phpcommunityadd_tutorialphp">3. Sistema de Tutoriales (<code>php/community/add_tutorial.php</code>)</h2>
+<p>Este módulo demuestra la versatilidad del sistema al manejar dos tipos de fuentes de datos para una misma entidad.</p>
+<h3 id="logica-de-seleccion-de-fuente">Lógica de Selección de Fuente</h3>
+<p>El controlador decide automáticamente si procesar un archivo subido o incrustar una URL externa.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">if (isset($_FILES[&#39;video_file&#39;]) &amp;&amp; validFile($_FILES[&#39;video_file&#39;])) {</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="x">    // Caso A: Almacenamiento Local</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="x">    $fileName = uniqid(&#39;video_&#39;) . &#39;.mp4&#39;;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="x">    move_uploaded_file($tmpName, $destPath);</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">    $finalSource = $destPath;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="x">} else if (!empty($videoUrl)) {</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="x">    // Caso B: Referencia Externa (YouTube)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="x">    $finalSource = $videoUrl;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="x">}</span>
+</code></pre></div>
+<p>Los datos se almacenan en la tabla <code>tutorials</code>, normalizando ambos casos en el campo <code>video_url</code>.</p>
 
 
 

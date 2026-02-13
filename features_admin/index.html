@@ -13,8 +13,10 @@
       
       
       
-        <link rel="prev" href="../security/">
+        <link rel="prev" href="../features_client/">
       
+      
+        <link rel="next" href="../security/">
       
       
         
@@ -25,7 +27,7 @@
     
     
       
-        <title>Manual de Despliegue - Memoria Técnica LayerHub</title>
+        <title>Módulos Admin - Memoria Técnica LayerHub</title>
       
     
     
@@ -76,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#manual-de-despliegue-y-evaluacion" class="md-skip">
+        <a href="#analisis-funcional-modulos-de-administracion" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Manual de Despliegue
+              Módulos Admin
             
           </span>
         </div>
@@ -297,9 +299,11 @@
   
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../features_admin/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
   
@@ -335,11 +339,9 @@
   
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../installation/" class="md-tabs__link">
         
   
   
@@ -509,10 +511,37 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../features_admin/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Módulos Admin
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -528,6 +557,121 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-crud-de-productos-publicadminproductosphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. CRUD de Productos (public/admin/productos.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CRUD de Productos (public/admin/productos.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proteccion-de-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protección de Acceso
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-insercionactualizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Inserción/Actualización
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sistema-de-moderacion-publicadminmoderar_stlphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Sistema de Moderación (public/admin/moderar_stl.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sistema de Moderación (public/admin/moderar_stl.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-aprobacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flujo de Aprobación
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-gestion-de-usuarios-y-bloqueos-publicadminusuariosphp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Gestión de Usuarios y Bloqueos (public/admin/usuarios.php)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Gestión de Usuarios y Bloqueos (public/admin/usuarios.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-bloqueo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Bloqueo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -563,37 +707,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual de Despliegue
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -609,126 +726,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requisitos-del-entorno" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requisitos del Entorno
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instrucciones-de-instalacion-paso-a-paso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instrucciones de Instalación Paso a Paso
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Instrucciones de Instalación Paso a Paso">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-ubicacion-de-archivos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Ubicación de Archivos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-verificacion-de-permisos" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Verificación de Permisos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configuracion-de-acceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configuración de Acceso
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ejecucion-y-pruebas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Ejecución y Pruebas
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Ejecución y Pruebas">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#datos-de-acceso-seeds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Datos de Acceso (Seeds)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizacion-de-documentacion-tecnica" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visualización de Documentación Técnica
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -760,33 +757,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos-del-entorno" class="md-nav__link">
+  <a href="#1-crud-de-productos-publicadminproductosphp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos del Entorno
+        1. CRUD de Productos (public/admin/productos.php)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#instrucciones-de-instalacion-paso-a-paso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Instrucciones de Instalación Paso a Paso
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Instrucciones de Instalación Paso a Paso">
+    <nav class="md-nav" aria-label="1. CRUD de Productos (public/admin/productos.php)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-ubicacion-de-archivos" class="md-nav__link">
+  <a href="#proteccion-de-acceso" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Ubicación de Archivos
+        Protección de Acceso
       
     </span>
   </a>
@@ -794,21 +780,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-verificacion-de-permisos" class="md-nav__link">
+  <a href="#logica-de-insercionactualizacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Verificación de Permisos
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configuracion-de-acceso" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configuración de Acceso
+        Lógica de Inserción/Actualización
       
     </span>
   </a>
@@ -821,22 +796,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ejecucion-y-pruebas" class="md-nav__link">
+  <a href="#2-sistema-de-moderacion-publicadminmoderar_stlphp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Ejecución y Pruebas
+        2. Sistema de Moderación (public/admin/moderar_stl.php)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Ejecución y Pruebas">
+    <nav class="md-nav" aria-label="2. Sistema de Moderación (public/admin/moderar_stl.php)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#datos-de-acceso-seeds" class="md-nav__link">
+  <a href="#flujo-de-aprobacion" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Datos de Acceso (Seeds)
+        Flujo de Aprobación
       
     </span>
   </a>
@@ -849,13 +824,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#visualizacion-de-documentacion-tecnica" class="md-nav__link">
+  <a href="#3-gestion-de-usuarios-y-bloqueos-publicadminusuariosphp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visualización de Documentación Técnica
+        3. Gestión de Usuarios y Bloqueos (public/admin/usuarios.php)
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="3. Gestión de Usuarios y Bloqueos (public/admin/usuarios.php)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logica-de-bloqueo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lógica de Bloqueo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -879,58 +871,44 @@
   
 
 
-<h1 id="manual-de-despliegue-y-evaluacion">Manual de Despliegue y Evaluación</h1>
-<p>Esta guía está diseñada para facilitar la evaluación del proyecto en un entorno local estándar utilizando <strong>XAMPP</strong>.</p>
-<h2 id="requisitos-del-entorno">Requisitos del Entorno</h2>
-<ul>
-<li><strong>Software</strong>: XAMPP (Apache + PHP 8.1 o superior).</li>
-<li><strong>Base de Datos</strong>: SQLite 3 (Nativa en PHP, no requiere servicio MySQL activo).</li>
-<li><strong>Sistema Operativo</strong>: Windows 10/11.</li>
-</ul>
-<h2 id="instrucciones-de-instalacion-paso-a-paso">Instrucciones de Instalación Paso a Paso</h2>
-<h3 id="1-ubicacion-de-archivos">1. Ubicación de Archivos</h3>
-<p>Copie la carpeta del proyecto <code>PROYECTOWEB</code> (o el contenido del repositorio) dentro del directorio raíz del servidor web:
-<code>C:\xampp\htdocs\PROYECTOWEB</code></p>
-<h3 id="2-verificacion-de-permisos">2. Verificación de Permisos</h3>
-<p>El sistema necesita crear y escribir en la base de datos y la carpeta de subidas. Asegúrese de que las siguientes carpetas tengan permisos de escritura:
-*   <code>/db</code> (Aquí se generará automáticamente <code>layerhub.sqlite</code>)
-*   <code>/public/uploads</code></p>
-<h3 id="3-configuracion-de-acceso">3. Configuración de Acceso</h3>
-<p>Abra el archivo <code>/php/includes/config.php</code> y verifique la constante <code>BASE_URL</code>. Para un entorno local estándar, debería ser:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">define(&#39;BASE_URL&#39;, &#39;http://localhost/PROYECTOWEB&#39;);</span>
+<h1 id="analisis-funcional-modulos-de-administracion">Análisis Funcional: Módulos de Administración</h1>
+<p>Este documento describe las funcionalidades exclusivas del panel de administración, protegido por el middleware de seguridad <code>requireAdmin()</code>.</p>
+<h2 id="1-crud-de-productos-publicadminproductosphp">1. CRUD de Productos (<code>public/admin/productos.php</code>)</h2>
+<p>El núcleo de la gestión de la tienda permite crear, leer, actualizar y eliminar productos.</p>
+<h3 id="proteccion-de-acceso">Protección de Acceso</h3>
+<p>Antes de ejecutar cualquier lógica, el sistema verifica el rol:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">require_once __DIR__ . &#39;/../../php/includes/session.php&#39;;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">requireAdmin(); // Detiene la ejecución si el rol != &#39;admin&#39;</span>
 </code></pre></div>
-<h2 id="ejecucion-y-pruebas">Ejecución y Pruebas</h2>
-<ol>
-<li>Inicie el módulo <strong>Apache</strong> en el panel de control de XAMPP.</li>
-<li>Abra su navegador y acceda a: <code>http://localhost/PROYECTOWEB/public/index.php</code>.</li>
-<li><strong>Nota Importante</strong>: Al cargar la página por primera vez, el sistema detectará que no existe la base de datos y ejecutará automáticamente el script de inicialización (<code>config.php -&gt; initializeDatabase()</code>), creando todas las tablas e insertando los siguientes datos de prueba:</li>
-</ol>
-<h3 id="datos-de-acceso-seeds">Datos de Acceso (Seeds)</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Rol</th>
-<th style="text-align: left;">Usuario/Email</th>
-<th style="text-align: left;">Contraseña</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><strong>Administrador</strong></td>
-<td style="text-align: left;"><code>admin</code> / <code>admin@layerhub.com</code></td>
-<td style="text-align: left;"><code>admin123</code></td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cliente</strong></td>
-<td style="text-align: left;"><code>cliente</code> / <code>cliente@layerhub.com</code></td>
-<td style="text-align: left;"><code>cliente123</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="visualizacion-de-documentacion-tecnica">Visualización de Documentación Técnica</h2>
-<p>Para visualizar esta memoria técnica en formato web:
-1.  Esta documentación se encuentra generada estáticamente en la URL del repositorio GitHub.
-2.  Alternativamente, puede navegar por los archivos Markdown en la carpeta <code>/docs/</code> del proyecto entregado.</p>
+<h3 id="logica-de-insercionactualizacion">Lógica de Inserción/Actualización</h3>
+<p>El sistema utiliza sentencias preparadas para modificar el catálogo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="x">if ($action === &#39;create&#39;) {</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="x">    $stmt = $db-&gt;prepare(&quot;INSERT INTO products (title, price, stock, category) VALUES (?, ?, ?, ?)&quot;);</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="x">    $stmt-&gt;execute([$title, $price, $stock, $category]);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="x">}</span>
+</code></pre></div>
+<h2 id="2-sistema-de-moderacion-publicadminmoderar_stlphp">2. Sistema de Moderación (<code>public/admin/moderar_stl.php</code>)</h2>
+<p>Esta interfaz actúa como un "semáforo" para el contenido generado por el usuario (UGC). Permite cambiar el estado de <code>pending</code> a <code>approved</code> o <code>rejected</code>.</p>
+<h3 id="flujo-de-aprobacion">Flujo de Aprobación</h3>
+<p>El administrador visualiza una lista de pendientes y ejecuta una acción que actualiza la base de datos:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="x">// Al aprobar un archivo</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="x">$stmt = $db-&gt;prepare(&quot;UPDATE stl_files SET status = &#39;approved&#39; WHERE id = ?&quot;);</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="x">$stmt-&gt;execute([$id]);</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="x">// Notificación (Opcional)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="x">// El sistema podría disparar una notificación al usuario informando la aprobación.</span>
+</code></pre></div>
+<p><strong>Impacto en el Sistema:</strong>
+Solo los registros con <code>status = 'approved'</code> son recuperados por las consultas SQL de la sección pública (<code>comunidad.php</code>), garantizando un entorno seguro y curado.</p>
+<h2 id="3-gestion-de-usuarios-y-bloqueos-publicadminusuariosphp">3. Gestión de Usuarios y Bloqueos (<code>public/admin/usuarios.php</code>)</h2>
+<p>Permite la administración de la base de usuarios, incluyendo la capacidad de revocar el acceso.</p>
+<h3 id="logica-de-bloqueo">Lógica de Bloqueo</h3>
+<p>El bloqueo es un "soft-delete" funcional. No borra al usuario, sino que establece un flag.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="x">// Bloquear usuario</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="x">$stmt = $db-&gt;prepare(&quot;UPDATE users SET blocked = 1 WHERE id = ?&quot;);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="x">$stmt-&gt;execute([$userId]);</span>
+</code></pre></div>
+<p>Este flag es verificado en cada inicio de sesión (<code>login.php</code>) y en cada carga de página (<code>session.php</code>), expulsando al usuario inmediatamente si está activo.</p>
 
 
 
