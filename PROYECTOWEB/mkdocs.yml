@@ -1,0 +1,53 @@
+site_name: "Memoria Técnica LayerHub"
+site_description: "Documentación técnica y manual de despliegue del proyecto LayerHub"
+site_author: "Estudiante ASIR"
+repo_url: "https://github.com/nereafernandez-ASIR/PROYECTOWEB"
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+
+nav:
+  - Introducción: index.md
+  - Arquitectura del Sistema: architecture.md
+  - Base de Datos: database.md
+  - Módulos Cliente: features_client.md
+  - Módulos Admin: features_admin.md
+  - Seguridad: security.md
+  - Manual de Despliegue: installation.md
