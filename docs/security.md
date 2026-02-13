@@ -1,40 +1,53 @@
-# Seguridad y Control de Roles
+# Seguridad y Protocolos de Protección
 
-La seguridad es un pilar central en LayerHub. Se han implementado múltiples capas de protección para asegurar la integridad de los datos y la privacidad de los usuarios.
+La seguridad en LayerHub se aborda desde el diseño ("Security by Design"), implementando controles en cada capa de la aplicación.
 
-## 🛡️ Mecanismos de Protección
+## 1. Sanitización de Datos (Input Validation)
 
-### 1. Autenticación de Sesión
-El sistema utiliza sesiones nativas de PHP (`session_start()`) con configuraciones de seguridad adicionales en `php/includes/session.php`:
-- **Regeneración de ID**: Se regenera el ID de sesión en cada login para prevenir ataques de *Session Fixation*.
-- **Validación de User-Agent**: Se comprueba que el navegador no cambie durante la sesión para evitar el *Hijacking*.
-- **Timeout Automático**: Las sesiones expiran tras 30 minutos de inactividad.
-
-### 2. Control de Acceso basado en Roles (RBAC)
-Existen dos niveles principales de acceso:
-
-| Rol | Alcance | Verificación |
-| :--- | :--- | :--- |
-| **Público** | Solo login e index. | N/A |
-| **Cliente** | Tienda, Comunidad y Perfil. | `requireLogin()` |
-| **Admin** | Gestión total y Moderación. | `requireAdmin()` |
-
-### 3. Blindaje de la URL
-Para evitar que un usuario "adivine" una ruta y acceda sin permiso, cada controlador sensible incluye una guardia al inicio:
+Para prevenir ataques de tipo XSS (Cross-Site Scripting), ninguna entrada de usuario se confía ciegamente. Se utiliza una función global `sanitize()`:
 
 ```php
-// En cualquier página de administración
-requireAdmin(); // Si no es admin, redirige al login o lanza 403.
-
-// En la tienda o perfil
-requireLogin(); // Si no hay sesión, envía al login.
+function sanitize($data) {
+    // 1. Eliminar espacios innecesarios
+    // 2. Eliminar etiquetas HTML y PHP (strip_tags)
+    // 3. Convertir caracteres especiales a entidades HTML
+    return htmlspecialchars(strip_tags(trim($data)), ENT_QUOTES, 'UTF-8');
+}
 ```
 
-## 🔒 Protección de Datos
+Esta función se aplica a todos los datos recibidos vía `$_POST` antes de ser procesados o almacenados.
 
-- **Inyección SQL**: El uso sistemático de `PDO` y parámetros enlazados (`bindValue`/`execute`) neutraliza ataques de inyección.
-- **XSS (Cross-Site Scripting)**: Todas las salidas de datos en el HTML pasan por la función `sanitize()` o `htmlspecialchars()`.
-- **Contraseñas**: Nunca se guardan en texto plano. Se utiliza `password_hash()` con el algoritmo BCRYPT y se verifican con `password_verify()`.
+## 2. Gestión de Contraseñas (BCRYPT)
 
-## 🚫 Usuarios Bloqueados
-El sistema consulta en cada carga de página crítica si el usuario ha sido marcado como `blocked` en la base de datos. Si lo está, la sesión se destruye instantáneamente y se le redirige al inicio.
+LayerHub cumple con los estándares modernos de criptografía. Las contraseñas **nunca** se almacenan en texto plano.
+
+### Registro
+```php
+$passwordHash = password_hash($password, PASSWORD_BCRYPT);
+// Se almacena $passwordHash en la base de datos (60 caracteres)
+```
+
+### Login
+```php
+if (password_verify($inputPassword, $storedHash)) {
+    // Contraseña correcta
+    startUserSession($user);
+}
+```
+
+## 3. Protección de Sesiones (Anti-Hijacking)
+
+Para evitar que un atacante robe una sesión activa copiando la cookie `PHPSESSID`, el sistema vincula la sesión a la huella digital del navegador.
+
+```php
+// session.php
+if ($_SESSION['user_agent'] !== $_SERVER['HTTP_USER_AGENT']) {
+    // Si el navegador cambia repentinamente, destruimos la sesión por seguridad
+    session_destroy();
+    exit('Error de seguridad: Sesión inválida');
+}
+```
+
+## 4. Control de Acceso (Middleware)
+
+La función `requireAdmin()` actúa como barrera final. Ubicada al inicio de cada archivo sensible, garantiza que el código protegido ni siquiera llegue a ejecutarse si el usuario no tiene las credenciales adecuadas.

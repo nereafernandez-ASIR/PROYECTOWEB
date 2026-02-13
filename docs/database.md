@@ -1,66 +1,78 @@
-# Base de Datos y Modelo de Datos
+# Infraestructura de Datos
 
-LayerHub utiliza **SQLite 3** para la persistencia de datos, lo que permite una configuración rápida sin necesidad de servidores de base de datos complejos.
+El sistema de persistencia se basa en **SQLite 3**, gestionado a través de la interfaz **PDO** de PHP. Este diseño garantiza la integridad referencial y permite transacciones ACID.
 
-## 📊 Diagrama de Entidad-Relación
+## Esquema Relacional Completo
 
-A continuación se muestra cómo se relacionan las entidades principales del sistema:
+A continuación se detalla la estructura de todas las tablas del sistema, incluyendo sus claves primarias (PK), foráneas (FK) y restricciones de integridad.
 
 ```mermaid
 erDiagram
-    USERS ||--o{ POSTS : escribe
-    USERS ||--o{ ORDERS : realiza
-    USERS ||--o{ USER_FOLLOWS : seguidor
-    USERS ||--o{ USER_FOLLOWS : seguido
-    POSTS ||--o| STL_FILES : contiene
-    USERS ||--o{ RATINGS : valora
-    STL_FILES ||--o{ RATINGS : recibe
-    ORDERS ||--o{ ORDER_ITEMS : contiene
-    PRODUCTS ||--o{ ORDER_ITEMS : es_comprado
-    PRODUCTS ||--o{ CART : esta_en
-    USERS ||--o{ CART : tiene
-
-    USERS {
-        int id PK
-        string username
-        string role "admin/user"
-        int blocked
-    }
-    PRODUCTS {
-        int id PK
-        string title
-        float price
-        int stock
-    }
-    STL_FILES {
-        int id PK
-        int user_id FK
-        string file_path
-        string status "pending/approved"
-    }
-    ORDERS {
-        int id PK
-        int user_id FK
-        float total_amount
-        string status
-    }
+    USERS ||--o{ ORDERS : "1:N"
+    USERS ||--o{ POSTS : "1:N"
+    USERS ||--o{ REVIEWS : "1:N"
+    USERS ||--o{ CART : "1:N"
+    PRODUCT ||--o{ ORDER_ITEMS : "1:N"
+    PRODUCT ||--o{ CART : "1:N"
+    ORDER ||--o{ ORDER_ITEMS : "1:N"
+    POST ||--o{ COMMENT : "1:N"
+    POST ||--|{ STL_FILE : "1:1"
 ```
 
-## 📋 Detalle de Tablas Principales
+### 1. Tabla `users` (Usuarios)
+Almacena las credenciales y perfiles de todos los actores del sistema.
 
-### Tabla `users`
-Almacena los perfiles de usuario y sus credenciales (contraseñas hasheadas con BCRYPT).
-- `role`: Define si el usuario es `user` (cliente) o `admin`.
-- `blocked`: Flag binario para restringir el acceso a usuarios conflictivos.
+| Campo | Tipo | Restricciones | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | INTEGER | PK, AUTOINCREMENT | Identificador único. |
+| `username` | TEXT | UNIQUE, NOT NULL | Nombre de usuario para login. |
+| `password` | TEXT | NOT NULL | Hash BCRYPT de la contraseña. |
+| `role` | TEXT | CHECK('user', 'admin') | Nivel de acceso. |
+| `blocked` | INTEGER | DEFAULT 0 | Flag de bloqueo (1=Bloqueado). |
 
-### Tabla `products`
-Define el catálogo de la tienda. Los productos tienen stock dinámico que se descuenta automáticamente tras cada compra confirmada.
+### 2. Tabla `products` (Catálogo)
+Inventario de artículos físicos disponibles en la tienda.
 
-### Tabla `stl_files` y `posts`
-Los archivos STL se vinculan a un `post` en la comunidad. Tienen un campo `status` que permite la moderación previa por parte de un administrador antes de ser públicos.
+| Campo | Tipo | Restricciones | Descripción |
+| :--- | :--- | :--- | :--- |
+| `id` | INTEGER | PK, AUTOINCREMENT | Identificador de producto. |
+| `title` | TEXT | NOT NULL | Nombre comercial. |
+| `price` | REAL | NOT NULL | Precio unitario. |
+| `stock` | INTEGER | DEFAULT 0 | Cantidad disponible. |
 
-### Tabla `user_follows`
-Implementa la relación muchos-a-muchos para el sistema de seguidores, permitiendo a los usuarios suscribirse a las actualizaciones de sus creadores favoritos.
+### 3. Tabla `orders` y `order_items` (Ventas)
+Estructura maestro-detalle para registrar las transacciones.
 
-## 💾 Persistencia
-La base de datos se encuentra físicamente en `db/layerhub.sqlite`. El acceso se realiza a través de **PDO** para prevenir inyecciones SQL mediante consultas preparadas.
+- **orders**: Cabecera del pedido (Usuario, Fecha, Total).
+- **order_items**: Líneas de detalle (Producto, Cantidad, Precio Histórico).
+
+### 4. Tablas de Comunidad (STL y Tutoriales)
+
+#### Tabla `stl_files`
+Almacena la referencia a los archivos 3D subidos.
+
+| Campo | Tipo | Restricciones | Descripción |
+| :--- | :--- | :--- | :--- |
+| `user_id` | INTEGER | FK -> users.id | Creador del archivo. |
+| `file_path` | TEXT | NOT NULL | Ruta física en servidor. |
+| `status` | TEXT | 'pending'/'approved' | Estado de moderación. |
+
+#### Tabla `tutorials`
+Gestión híbrida de contenido educativo.
+
+| Campo | Tipo | Descripción |
+| :--- | :--- | :--- |
+| `video_url` | TEXT | URL de YouTube o ruta local de archivo MP4. |
+| `status` | TEXT | Estado de moderación. |
+
+#### Tabla `ratings` (Valoraciones)
+Sistema de feedback con restricción de unicidad (un usuario solo puede valorar una vez cada ítem).
+
+| Campo | Tipo | Restricciones |
+| :--- | :--- | :--- |
+| `user_id` | INTEGER | FK -> users.id |
+| `stl_id` | INTEGER | FK -> stl_files.id |
+| `rating` | INTEGER | CHECK(1-5) |
+
+#### Tabla `user_follows` (Seguidores)
+Relación reflexiva N:M que permite a los usuarios suscribirse a creadores. PKey compuesta `(follower_id, following_id)`.

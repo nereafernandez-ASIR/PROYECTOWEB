@@ -1,10 +1,11 @@
-site_name: "LayerHub Documentation"
-site_description: "Guía técnica completa del proyecto LayerHub"
-site_author: "Senior Full-Stack Developer"
-repo_url: "https://github.com/tu-usuario/layerhub"
+site_name: "Memoria Técnica LayerHub"
+site_description: "Documentación técnica y manual de despliegue del proyecto LayerHub"
+site_author: "Estudiante ASIR"
+repo_url: "https://github.com/nereafernandez-ASIR/PROYECTOWEB"
 
 theme:
   name: material
+  language: es
   palette:
     - scheme: default
       primary: indigo
@@ -43,9 +44,10 @@ markdown_extensions:
   - attr_list
 
 nav:
-  - Inicio: index.md
+  - Introducción: index.md
   - Arquitectura del Sistema: architecture.md
   - Base de Datos: database.md
-  - Funcionalidades: features.md
-  - Seguridad y Roles: security.md
-  - Guía de Instalación: installation.md
+  - Módulos Cliente: features_client.md
+  - Módulos Admin: features_admin.md
+  - Seguridad: security.md
+  - Manual de Despliegue: installation.md

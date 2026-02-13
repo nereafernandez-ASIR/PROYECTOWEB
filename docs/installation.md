@@ -1,48 +1,46 @@
-# Guía de Instalación y Despliegue
+# Manual de Despliegue y Evaluación
 
-Sigue estos pasos para poner en marcha el portal de documentación y el proyecto LayerHub.
+Esta guía está diseñada para facilitar la evaluación del proyecto en un entorno local estándar utilizando **XAMPP**.
 
-## 📥 Requisitos Previos
-- **PHP 8.0** o superior.
-- **Servidor Web** (Apache/Nginx) - Se recomienda **XAMPP**.
-- **Python 3.x** (para ejecutar MkDocs).
+## Requisitos del Entorno
 
-## 📓 Instalación de la Documentación
-Para visualizar este portal de forma interactiva y profesional:
+*   **Software**: XAMPP (Apache + PHP 8.1 o superior).
+*   **Base de Datos**: SQLite 3 (Nativa en PHP, no requiere servicio MySQL activo).
+*   **Sistema Operativo**: Windows 10/11.
 
-1. **Instalar MkDocs y el tema Material**:
-   ```bash
-   pip install mkdocs-material
-   ```
+## Instrucciones de Instalación Paso a Paso
 
-2. **Ejecutar el servidor local**:
-   Desde la raíz del proyecto (`c:\xampp\htdocs`), ejecuta:
-   ```bash
-   mkdocs serve
-   ```
+### 1. Ubicación de Archivos
+Copie la carpeta del proyecto `PROYECTOWEB` (o el contenido del repositorio) dentro del directorio raíz del servidor web:
+`C:\xampp\htdocs\PROYECTOWEB`
 
-3. **Ver en el navegador**:
-   Abre [http://127.0.0.1:8000](http://127.0.0.1:8000).
+### 2. Verificación de Permisos
+El sistema necesita crear y escribir en la base de datos y la carpeta de subidas. Asegúrese de que las siguientes carpetas tengan permisos de escritura:
+*   `/db` (Aquí se generará automáticamente `layerhub.sqlite`)
+*   `/public/uploads`
 
-## 🌐 Publicar en Internet (GitHub Pages)
-MkDocs tiene una función integrada para crear un enlace web gratuito:
+### 3. Configuración de Acceso
+Abra el archivo `/php/includes/config.php` y verifique la constante `BASE_URL`. Para un entorno local estándar, debería ser:
 
-1. **Subir a GitHub**: Asegúrate de que tu proyecto está en un repositorio de GitHub.
-2. **Ejecutar despliegue**:
-   ```bash
-   mkdocs gh-deploy
-   ```
-   Este comando compilará tu documentación y la subirá a una rama llamada `gh-pages`.
-
-3. **Configuración en GitHub**:
-   - Ve a tu repositorio en GitHub.com.
-   - Entra en **Settings** > **Pages**.
-   - Asegúrate de que la fuente es la rama `gh-pages`.
-   - ¡GitHub te dará una URL (ej: `https://tu-usuario.github.io/layerhub`) para que cualquiera pueda entrar!
-
-## 🏗️ Compilación Estática
-Si quieres generar una versión HTML de esta documentación para subirla a un servidor web:
-```bash
-mkdocs build
+```php
+define('BASE_URL', 'http://localhost/PROYECTOWEB');
 ```
-Esto creará una carpeta `site/` con todo el contenido listo para ser servido.
+
+## Ejecución y Pruebas
+
+1.  Inicie el módulo **Apache** en el panel de control de XAMPP.
+2.  Abra su navegador y acceda a: `http://localhost/PROYECTOWEB/public/index.php`.
+3.  **Nota Importante**: Al cargar la página por primera vez, el sistema detectará que no existe la base de datos y ejecutará automáticamente el script de inicialización (`config.php -> initializeDatabase()`), creando todas las tablas e insertando los siguientes datos de prueba:
+
+### Datos de Acceso (Seeds)
+
+| Rol | Usuario/Email | Contraseña |
+| :--- | :--- | :--- |
+| **Administrador** | `admin` / `admin@layerhub.com` | `admin123` |
+| **Cliente** | `cliente` / `cliente@layerhub.com` | `cliente123` |
+
+## Visualización de Documentación Técnica
+
+Para visualizar esta memoria técnica en formato web:
+1.  Esta documentación se encuentra generada estáticamente en la URL del repositorio GitHub.
+2.  Alternativamente, puede navegar por los archivos Markdown en la carpeta `/docs/` del proyecto entregado.

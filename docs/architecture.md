@@ -1,43 +1,48 @@
 # Arquitectura del Sistema
 
-LayerHub utiliza una estructura modular que separa la lógica del negocio de la presentación visual.
+## Estructura de Directorios
 
-## 📂 Estructura de Directorios
+El proyecto sigue una arquitectura **MVC (Modelo-Vista-Controlador)** adaptada a PHP nativo, separando claramente la lógica de negocio, la capa de datos y la interfaz de usuario.
 
 ```text
 /
-├── docs/               # Archivos fuente de esta documentación (Markdown)
+├── db/                 # Capa de Datos (SQLite)
 ├── php/                # Lógica de Negocio (Backend)
-│   ├── auth/           # Login, Registro y Logout
-│   ├── community/      # Procesadores de subidas, ratings y follows
-│   └── includes/       # Configuración global y gestión de sesiones
-├── public/             # Archivos Públicos (Frontend)
-│   ├── admin/          # Panel de Gestión Administrativo
-│   ├── css/            # Estilos globales y específicos
-│   ├── images/         # Recursos gráficos y placeholders
-│   ├── js/             # Scripts de interactividad
-│   └── uploads/        # Archivos subidos por usuarios (Modelos/Imágenes)
-├── db/                 # Almacenamiento de la Base de Datos SQLite
-└── mkdocs.yml          # Configuración de este portal
+│   ├── auth/           # Controladores de Sesión (Login, Registro)
+│   ├── community/      # Controladores de Lógica (Subidas, Ratings)
+│   └── includes/       # Núcleo del Sistema (Config, Session)
+├── public/             # Capa de Presentación (Frontend)
+│   ├── admin/          # Vistas Privadas (Administración)
+│   ├── css/            # Hojas de Estilo
+│   ├── js/             # Scripts de Cliente
+│   ├── uploads/        # Almacenamiento de Archivos de Usuario
+│   └── index.php       # Punto de Entrada Público
 ```
 
-## 🔄 Flujo de una Petición (Request)
+## Interoperabilidad PHP
 
-Cuando un usuario interactúa con la página, el flujo sigue este patrón:
+El sistema funciona mediante un flujo de inclusión de dependencias jerárquico. Cada archivo accesible públicamente (en `public/`) inicia su ejecución cargando el núcleo del sistema.
 
-1. **Interfaz**: El usuario hace clic en una acción (ej: Comprar) en un archivo en `public/`.
-2. **Controlador**: Se envía una petición (GET/POST) a un archivo en `php/`.
-3. **Seguridad**: Se invoca `session.php` para verificar permisos.
-4. **Base de Datos**: El archivo PHP se comunica con `config.php` para realizar operaciones SQL.
-5. **Respuesta**: El servidor responde con una redirección o un JSON (AJAX).
+### Diagrama de Flujo de Carga
 
-## 🧩 Integración PHP
-Todos los archivos del sistema incluyen dos pilares fundamentales al inicio:
-
-```php
-require_once __DIR__ . '/../php/includes/session.php'; // Gestión de sesiones
-require_once __DIR__ . '/../php/includes/config.php';  // Conexión y Helpers
+```mermaid
+graph TD
+    A[Public Page (Vista)] -->|require_once| B[session.php]
+    B -->|require_once| C[config.php]
+    C -->|Database::getInstance| D[Conexión SQLite]
+    A -->|Lógica Específica| E[Renderizado HTML]
 ```
 
-- **session.php**: Define si hay un usuario activo (`isLoggedIn()`) y sus roles.
-- **config.php**: Centraliza la conexión PDO y funciones comunes como `sanitize()` y `redirect()`.
+### Componentes del Núcleo
+
+1.  **session.php**: Actúa como un *Middleware* de autenticación. Se encarga de iniciar la sesión de PHP, verificar si el usuario está bloqueado y proporcionar funciones globales como `isLoggedIn()` e `isAdmin()`.
+2.  **config.php**: Contiene la configuración global (`BASE_URL`, rutas), la conexión a base de datos (Clase `Database`) y funciones auxiliares de seguridad (`sanitize()`, `redirect()`).
+
+## Ciclo de Vida de una Petición (Request-Response)
+
+1.  **Petición**: El navegador solicita `public/tienda.php`.
+2.  **Inicialización**: Se carga el núcleo (`session.php` + `config.php`).
+3.  **Verificación**: Se comprueba si existe una sesión válida.
+4.  **Consulta**: La vista solicita datos a la BD mediante `getDB()`.
+5.  **Renderizado**: PHP genera el HTML dinámico inyectando los datos.
+6.  **Respuesta**: El servidor envía el documento HTML final al cliente.
