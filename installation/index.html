@@ -896,9 +896,14 @@
 *   <code>/db</code> (Aquí se generará automáticamente <code>layerhub.sqlite</code>)
 *   <code>/public/uploads</code></p>
 <h3 id="3-configuracion-de-acceso">3. Configuración de Acceso</h3>
-<p>Abra el archivo <code>/php/includes/config.php</code> y verifique la constante <code>BASE_URL</code>. Para un entorno local estándar, debería ser:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">define(&#39;BASE_URL&#39;, &#39;http://localhost/PROYECTOWEB&#39;);</span>
+<p>El sistema ya viene preconfigurado para ejecutarse en la carpeta <code>/PROYECTOWEB</code>.</p>
+<p>Si abre el archivo <code>/php/includes/config.php</code>, verá la siguiente configuración automática:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="x">// Detección Automática de Dominio</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="x">$protocol = isset($_SERVER[&#39;HTTPS&#39;]) &amp;&amp; $_SERVER[&#39;HTTPS&#39;] === &#39;on&#39; ? &quot;https&quot; : &quot;http&quot;;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="x">$host = $_SERVER[&#39;HTTP_HOST&#39;];</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="x">define(&#39;BASE_URL&#39;, &quot;$protocol://$host/PROYECTOWEB&quot;);</span>
 </code></pre></div>
+<p>Esto permite que el proyecto funcione inmediatamente al descomprimirlo en <code>htdocs/PROYECTOWEB</code>.</p>
 <h2 id="ejecucion-y-pruebas">Ejecución y Pruebas</h2>
 <ol>
 <li>Inicie el módulo <strong>Apache</strong> en el panel de control de XAMPP.</li>
