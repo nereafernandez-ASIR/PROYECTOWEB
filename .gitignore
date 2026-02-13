@@ -1,0 +1,18 @@
+# Ignorar todo el proyecto LayerHub
+/*
+!/mkdocs.yml
+!/docs/
+!/docs/**
+!/.gitignore
+
+# Ignorar carpetas de sistema/logs
+/db/
+/php/
+/public/
+/logs/
+/xampp/
+/tmp/
+.vscode/
+.idea/
+*.sqlite
+/site/
